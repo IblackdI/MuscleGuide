@@ -1,0 +1,161 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+:root {
+	scroll-behavior: smooth;
+	font-size: 10px;
+	--Big-Font: 4rem;
+	--Medium-Font: 3rem;
+	--Small-Font: 2rem;
+	--Main-Background: rgb(51, 55, 69);
+	--Nav-First: #e63462;
+	--Nav-Second: #fe5f55;
+	--Text: #c7efcf;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	color: var(--Text);
+	background-color: var(--Main-Background);
+}
+
+img {
+	width: 250px;
+	object-fit: scale-down;
+}
+@keyframes zoomin {
+	from {
+		transform: scale(1);
+	}
+
+	to {
+		transform: scale(1.5);
+	}
+}
+img:hover {
+	animation-name: zoomin;
+	animation-duration: 300ms;
+	animation-fill-mode: forwards;
+}
+
+hr {
+	color: var(--Text);
+}
+
+#main-doc {
+	padding: 3rem;
+	padding-top: 0;
+}
+
+#main-doc li,
+#navbar a,
+p,
+figcaption {
+	font-size: var(--Small-Font);
+	text-align: justify;
+}
+
+h1 {
+	font-size: var(--Big-Font);
+	text-align: center;
+}
+
+h2 {
+	font-size: var(--Medium-Font);
+	text-align: center;
+}
+
+#navbar {
+	display: flex;
+	justify-content: space-evenly;
+	background-color: var(--Nav-First);
+	box-shadow: 0px 5px 15px black;
+	position: sticky;
+	top: 0;
+}
+
+.nav-head {
+	display: none;
+}
+
+#navbar a {
+	color: var(--Text);
+	padding: 5px 10px 5px 10px;
+}
+
+#navbar a:hover {
+	background: linear-gradient(
+		90deg,
+		var(--Nav-First) 0%,
+		var(--Nav-Second) 50%,
+		var(--Nav-First) 100%
+	);
+}
+
+#navbar a:active {
+	color: var(--Main-Background);
+}
+
+a {
+	text-decoration: none;
+	color: var(--Nav-First);
+}
+
+a:visited {
+	color: var(--Nav-Second);
+}
+
+a:active {
+	color: var(--Text);
+}
+
+@media (min-width: 720px) {
+	body {
+		flex-direction: row;
+	}
+
+	#main-doc {
+		margin-left: 20%;
+	}
+
+	img {
+		width: 380px;
+	}
+
+	#navbar {
+		width: 20%;
+		height: 100vh;
+		position: fixed;
+		flex-direction: column;
+		box-shadow: 5px 0px 15px black;
+	}
+
+	.nav-head {
+		display: block;
+		font-size: var(--Big-Font);
+		text-align: center;
+		padding: 2rem;
+	}
+
+	#navbar a {
+		/*border-top: 1px solid var(--Text);*/
+		background-color: var(--Nav-First);
+		font-size: var(--Medium-Font);
+		height: 100%;
+		padding: 0;
+		padding-left: 2rem;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+
+	#navbar a:hover {
+		background: linear-gradient(90deg, var(--Nav-Second), var(--Nav-First));
+	}
+}
